@@ -24,11 +24,11 @@ public class VehicleController : MonoBehaviour
     void Start()
     {
         currentSpeed = moveSpeed;
-        UpdateScoreText(); // Initialize the score display
-        UpdateHealthText(); // Initialize the health display
+        UpdateScoreText(); 
+        UpdateHealthText(); 
         gameOverText.gameObject.SetActive(false); // Hide the Game Over text at the start
 
-        // Initialize the AudioSource component
+        // Initialize Audio
         audioSource = GetComponent<AudioSource>();
     }
 
@@ -36,7 +36,7 @@ public class VehicleController : MonoBehaviour
     {
         if (!isGameOver)
         {
-            // Braking function when space is pressed
+    
             if (Input.GetKey(KeyCode.Space))
             {
                 currentSpeed = 0f; // Brake the vehicle
@@ -52,13 +52,13 @@ public class VehicleController : MonoBehaviour
                     moveDirection = -1f; // Set reverse
                 }
 
-                // Set current speed based on the move direction (forward or reverse)
+                
                 currentSpeed = moveSpeed * moveDirection;
 
-                // Vehicle rotation
+               
                 float turn = Input.GetAxis("Horizontal") * turnSpeed * Time.deltaTime;
 
-                // Translate the vehicle based on current speed
+                
                 transform.Translate(0, 0, currentSpeed * Time.deltaTime);
                 transform.Rotate(0, turn, 0);
             }
@@ -113,7 +113,7 @@ public class VehicleController : MonoBehaviour
         }
     }
 
-    // Method to play the coin sound effect
+    // Method to play the coin sound effekt
     private void PlayCoinSound()
     {
         if (coinSound != null && audioSource != null)
